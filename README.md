@@ -10,7 +10,7 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
 ## Usage
 ```js
   // Import the class
-  var TreeNode = require('tree-node.min.js').TreeNode;
+  var TreeNode = require('tree-node').TreeNode;
 
   // Create a tree by adding a single node, with a data object payload. This will be the root node.
 
