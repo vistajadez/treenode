@@ -52,6 +52,26 @@ gulp.task('dev:js', ['dev:clean'], function() {
 });
 
 
+// *** PROD ***
+gulp.task('prod', ['prod:js']);
+
+gulp.task('prod:js', ['dev:js'], function() {
+    var appFiles = './source/**/*.js',
+        destPath = './dist',
+        stream = streamqueue({ objectMode: true });
+
+    stream.queue(
+        gulp.src(appFiles).pipe(eslint()).pipe(eslint.format())
+    );
+
+    return stream.done()
+        .pipe(babel())
+        .pipe(concat('tree-node.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(destPath));
+});
+
+
 // *** TEST ***
 gulp.task('test', ['test:jasmine']);
 
