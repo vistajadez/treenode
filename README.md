@@ -8,7 +8,7 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
   npm install tree-node --save
 
 ## Usage
-
+```js
   // Import the class
   var TreeNode = require('tree-node.min.js').TreeNode;
 
@@ -32,6 +32,7 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
 
   // Find the tree root, from any node
   var root = node.root();
+```
 
 ## Tests
 
