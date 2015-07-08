@@ -1,4 +1,4 @@
-var TreeNode = require('../dist/treenode.js').TreeNode;
+var TreeNode = require('../dist/treenode').TreeNode;
 
 describe("TreeNode Class", function() {
     var tree;

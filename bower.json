@@ -1,8 +1,8 @@
 {
   "name": "treenode",
-  "main": "dist/treenode.min.js",
+  "main": "source/treenode.js",
+  "moduleType": "es6",
   "ignore": [
-    "source",
     "test",
     "node_modules",
     ".bowerrc",
