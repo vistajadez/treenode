@@ -5,12 +5,12 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
 
 ## Installation
 
-  npm install tree-node --save
+  npm install treenode --save
 
 ## Usage
 ```js
   // Import the class
-  var TreeNode = require('tree-node').TreeNode;
+  var TreeNode = require('treenode').TreeNode;
 
   // Create a tree by adding a single node, with a data object payload. This will be the root node.
 

@@ -1,14 +1,14 @@
 {
-  "name": "tree-node",
+  "name": "treenode",
   "version": "0.1.0",
-  "description": "Simple tree data structure in JS",
+  "description": "Very simple tree data structure in JS",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/deztopia/tree-node.git"
+    "url": "https://github.com/deztopia/treenode.git"
   },
   "keywords": [
     "tree",
@@ -17,9 +17,9 @@
   "author": "Jason Melendez <jason.melendez@gmail.com> (https://github.com/deztopia)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/deztopia/tree-node/issues"
+    "url": "https://github.com/deztopia/treenode/issues"
   },
-  "homepage": "https://github.com/deztopia/tree-node",
+  "homepage": "https://github.com/deztopia/treenode",
   "devDependencies": {
     "babel": "^5.6.14",
     "bower": "^1.4.1",

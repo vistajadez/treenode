@@ -1,9 +1,9 @@
 var globals = {};
 
 // Stash old global.
-if ("tree-node" in global) globals['tree-node'] = global['tree-node'];
+if ("treenode" in global) globals.treenode = global.treenode;
 
-module.exports = require("./dist/tree-node");
+module.exports = require("./dist/treenode");
 
 // Restore old global.
-if ("tree-node" in globals) global['tree-node'] = globals['tree-node']; else delete global['tree-node'];
+if ("treenode" in globals) global.treenode = globals.treenode; else delete global.treenode;
