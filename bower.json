@@ -1,9 +1,9 @@
 {
   "name": "treenode",
-  "main": "source/treenode.js",
-  "moduleType": "es6",
+  "main": "dist/treenode.js",
   "ignore": [
     "test",
+    "source",
     "node_modules",
     ".bowerrc",
     ".gitignore",
