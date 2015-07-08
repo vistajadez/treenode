@@ -1,6 +1,5 @@
 {
   "name": "treenode",
-  "version": "0.1.0",
   "main": "dist/treenode.min.js",
   "ignore": [
     "source",
