@@ -45,7 +45,7 @@ gulp.task('dev:js', ['dev:clean'], function() {
 
     return stream.done()
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({ modules: "umd" }))
         .pipe(concat('treenode.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(destPath))
@@ -65,7 +65,7 @@ gulp.task('prod:js', ['dev:js'], function() {
     );
 
     return stream.done()
-        .pipe(babel())
+        .pipe(babel({ modules: "umd" }))
         .pipe(concat('treenode.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(destPath));

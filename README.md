@@ -45,6 +45,8 @@ functionality. Lint and test your code.
 
 ## Release History
 
+* 0.1.4 Better module export syntax
+* 0.1.3 Updated packaging for Bower
 * 0.1.2 Updated packaging
 * 0.1.1 Updated packaging
 * 0.1.0 Initial release
