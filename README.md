@@ -12,19 +12,23 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
   // Import the class
   var TreeNode = require('treenode').TreeNode;
 
-  // Create a tree by adding a single node, with a data object payload. This will be the root node.
+  // Create a tree by adding a single node, with a data object payload.
+  // This will be the root node.
+  var tree = new TreeNode({id: 0, name: 'root'});
 
-  var tree = new TreeNode({id: 0, name: 'root'}); // tree is a TreeNode object: {data: {id: 0, name: 'root'}, parent: null, children: []}
-
-  // Add children to the root. This returns the newly created child's TreeNode object.
+  // Add children to the root. This returns the newly created child's
+  // TreeNode object. tree is a TreeNode object:
+  // {data: {id: 0, name: 'root'}, parent: null, children: []}
   tree.addChild({id: 2, name: 'Node 2' });
   var intermediateNode = tree.addChild(data[2]);
 
   // Add child nodes to child nodes
   intermediateNode.addChild({id: 3, name: 'Node 3' });
 
-  // Obtain the tree's leaves (end nodes), from the point of the called node
-  var leaves = tree.leaves(); // returns TreeNode objects for node 1 and node 3. Node 2 is not returned since it is not a leaf.
+  // Obtain the tree's leaves (end nodes), from the point of the called node.
+  // returns TreeNode objects for node 1 and node 3. Node 2 is not returned
+  // since it is not a leaf.
+  var leaves = tree.leaves();
 
   // Find data in a tree
   var node = tree.addChild(someObject);
