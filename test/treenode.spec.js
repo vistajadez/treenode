@@ -4,16 +4,20 @@ describe("TreeNode Class", function() {
     var tree;
     var data = [
         {
-            name: 'I am ROOT'
+            name: 'I am ROOT',
+            status: 'initial'
         },
         {
-            name: 'Node 1'
+            name: 'Node 1',
+            status: 'initial'
         },
         {
-            name: 'Node 2'
+            name: 'Node 2',
+            status: 'initial'
         },
         {
-            name: 'Node 3'
+            name: 'Node 3',
+            status: 'initial'
         }
     ];
 
@@ -50,6 +54,19 @@ describe("TreeNode Class", function() {
 
         // we've added 3 nodes, but only two are leaves
         expect(leaves.length).toBe(2);
+    });
+
+    it ("should execute forEach() callback on all child nodes", function() {
+        var intermediateNode = tree.addChild(data[1]);
+        var childNode = intermediateNode.addChild(data[2]);
+
+        intermediateNode.forEach(function(node) {
+           node.data.status = 'updated';
+        });
+
+        expect(tree.root().data.status).toBe('initial');
+        expect(intermediateNode.data.status).toBe('updated');
+        expect(childNode.data.status).toBe('updated');
     });
 
 });

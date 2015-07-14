@@ -49,6 +49,7 @@ functionality. Lint and test your code.
 
 ## Release History
 
+* 0.2.0 Add forEach() to execute a function on each node in a tree
 * 0.1.4 Better module export syntax
 * 0.1.3 Updated packaging for Bower
 * 0.1.2 Updated packaging

@@ -77,4 +77,27 @@ export class TreeNode {
         }
         return this.parent.root();
     }
+
+    /**
+     * Pass this node as a parameter to the given callback function. Iteratively pass each child as well.
+     * Returns the current node afterwards.
+     *
+     * @param callback A function which will take each node as a parameter.
+     * @returns {TreeNode}
+     */
+    forEach(callback) {
+        if (typeof callback !== 'function') {
+            throw new TypeError('forEach() callback must be a function');
+        }
+
+        // run this node through function
+        callback(this);
+
+        // do the same for all children
+        for (let i = 0, length = this.children.length; i < length; i++) {
+            callback(this.children[i]);
+        }
+
+        return this;
+    }
 }
