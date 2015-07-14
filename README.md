@@ -36,6 +36,11 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
 
   // Find the tree root, from any node
   var root = node.root();
+  
+  // Execute a function on each node in the tree
+  node.forEach(function(element) {
+    element.data.status='processed';
+  });
 ```
 
 ## Tests
