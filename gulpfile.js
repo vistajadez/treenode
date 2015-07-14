@@ -75,7 +75,7 @@ gulp.task('prod:js', ['dev:js'], function() {
 // *** TEST ***
 gulp.task('test', ['test:jasmine']);
 
-gulp.task('test:jasmine', function() {
+gulp.task('test:jasmine', ['dev:js'], function() {
     return gulp.src('./test/**/*.spec.js')
         .pipe(jasmine());
 });
