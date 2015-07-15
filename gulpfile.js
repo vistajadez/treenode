@@ -60,7 +60,7 @@ gulp.task('prod:jsmin', ['prod:js'], function() {
     var appFiles = './dist/treenode.js',
         destPath = './dist';
 
-    return gulp.src(appFiles).pipe(eslint()).pipe(eslint.format())
+    return gulp.src(appFiles)
         .pipe(concat('treenode.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(destPath));

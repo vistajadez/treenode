@@ -14,7 +14,6 @@ export class TreeNode {
     constructor(data, parent) {
         this.data = data;
         this.parent = parent;
-        this.children = [];
         return this;
     }
 
@@ -25,6 +24,9 @@ export class TreeNode {
      */
     addChild(data) {
         let child = new TreeNode(data, this);
+        if (!this.children) {
+            this.children = [];
+        }
         this.children.push(child);
         return child;
     }
@@ -39,10 +41,12 @@ export class TreeNode {
             return this;
         }
 
-        for (let i = 0, length = this.children.length, target = null; i < length; i++) {
-            target = this.children[i].find(data);
-            if (target) {
-                return target;
+        if (this.children) {
+            for (let i = 0, length = this.children.length, target = null; i < length; i++) {
+                target = this.children[i].find(data);
+                if (target) {
+                    return target;
+                }
             }
         }
 
@@ -54,15 +58,17 @@ export class TreeNode {
      * @returns {Array}
      */
     leaves() {
-        if (this.children.length === 0) {
+        if (!this.children || this.children.length === 0) {
             // this is a leaf
             return [this];
         }
 
         // if not a leaf, return all children's leaves recursively
         let leaves = [];
-        for (let i = 0, length = this.children.length; i < length; i++) {
-            leaves.push.apply(leaves, this.children[i].leaves());
+        if (this.children) {
+            for (let i = 0, length = this.children.length; i < length; i++) {
+                leaves.push.apply(leaves, this.children[i].leaves());
+            }
         }
         return leaves;
     }
@@ -94,10 +100,23 @@ export class TreeNode {
         callback(this);
 
         // do the same for all children
-        for (let i = 0, length = this.children.length; i < length; i++) {
-            callback(this.children[i]);
+        if (this.children) {
+            for (let i = 0, length = this.children.length; i < length; i++) {
+                callback(this.children[i]);
+            }
         }
 
         return this;
+    }
+
+    /**
+     * Returns the number of direct descendants of this node.
+     * @returns {Number}
+     */
+    numChildren() {
+        if (!this.children) {
+            return 0;
+        }
+        return this.children.length;
     }
 }

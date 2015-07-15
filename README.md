@@ -8,6 +8,7 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
   npm install treenode --save
 
 ## Usage
+
 ```js
   // Import the class
   var TreeNode = require('treenode').TreeNode;
@@ -24,6 +25,10 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
   // Add child nodes to child nodes
   var child = tree.addChild({id: 2, name: 'Node 2'});
   child.addChild({id: 3, name: 'Node 3' });
+  
+  // Get a count of the node's immediate children
+  tree.numChildren() // 2
+  child.numChildren() // 1
 
   // Obtain the tree's leaves (end nodes), from the point of the called node.
   // Returns an array of TreeNode objects for node 1 and node 3. Node 2 is not
@@ -54,6 +59,7 @@ functionality. Lint and test your code.
 
 ## Release History
 
+* 0.2.2 Don't assume existence of children array. Added numChildren() helper
 * 0.2.1 Remove sourcemaps from non-minified prod file
 * 0.2.0 Add forEach() to execute a function on each node in a tree
 * 0.1.4 Better module export syntax

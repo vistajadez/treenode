@@ -40,7 +40,6 @@
 
             this.data = data;
             this.parent = parent;
-            this.children = [];
             return this;
         }
 
@@ -54,6 +53,9 @@
              */
             value: function addChild(data) {
                 var child = new TreeNode(data, this);
+                if (!this.children) {
+                    this.children = [];
+                }
                 this.children.push(child);
                 return child;
             }
@@ -70,10 +72,12 @@
                     return this;
                 }
 
-                for (var i = 0, _length = this.children.length, target = null; i < _length; i++) {
-                    target = this.children[i].find(data);
-                    if (target) {
-                        return target;
+                if (this.children) {
+                    for (var i = 0, _length = this.children.length, target = null; i < _length; i++) {
+                        target = this.children[i].find(data);
+                        if (target) {
+                            return target;
+                        }
                     }
                 }
 
@@ -87,15 +91,17 @@
              * @returns {Array}
              */
             value: function leaves() {
-                if (this.children.length === 0) {
+                if (!this.children || this.children.length === 0) {
                     // this is a leaf
                     return [this];
                 }
 
                 // if not a leaf, return all children's leaves recursively
                 var leaves = [];
-                for (var i = 0, _length2 = this.children.length; i < _length2; i++) {
-                    leaves.push.apply(leaves, this.children[i].leaves());
+                if (this.children) {
+                    for (var i = 0, _length2 = this.children.length; i < _length2; i++) {
+                        leaves.push.apply(leaves, this.children[i].leaves());
+                    }
                 }
                 return leaves;
             }
@@ -131,11 +137,26 @@
                 callback(this);
 
                 // do the same for all children
-                for (var i = 0, _length3 = this.children.length; i < _length3; i++) {
-                    callback(this.children[i]);
+                if (this.children) {
+                    for (var i = 0, _length3 = this.children.length; i < _length3; i++) {
+                        callback(this.children[i]);
+                    }
                 }
 
                 return this;
+            }
+        }, {
+            key: 'numChildren',
+
+            /**
+             * Returns the number of direct descendants of this node.
+             * @returns {Number}
+             */
+            value: function numChildren() {
+                if (!this.children) {
+                    return 0;
+                }
+                return this.children.length;
             }
         }]);
 
