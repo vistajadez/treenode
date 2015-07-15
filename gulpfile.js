@@ -55,24 +55,18 @@ gulp.task('dev:js', ['dev:clean'], function() {
 // *** PROD ***
 gulp.task('prod', ['prod:jsmin']);
 
-// concats the JS source files into a single app.js file, minified. Performs JS linting and ES6->ES5 transpilation
+// minifies prod JS file.
 gulp.task('prod:jsmin', ['prod:js'], function() {
-    var appFiles = './source/**/*.js',
-        destPath = './dist',
-        stream = streamqueue({ objectMode: true });
+    var appFiles = './dist/treenode.js',
+        destPath = './dist';
 
-    stream.queue(
-        gulp.src(appFiles).pipe(eslint()).pipe(eslint.format())
-    );
-
-    return stream.done()
-        .pipe(babel({ modules: "umd" }))
+    return gulp.src(appFiles).pipe(eslint()).pipe(eslint.format())
         .pipe(concat('treenode.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(destPath));
 });
 
-// concats the JS source files into a single app.js file, non-minified. Performs JS linting and ES6->ES5 transpilation
+// concats the JS source files into a single file, non-minified. Performs JS linting and ES6->ES5 transpilation
 gulp.task('prod:js', ['dev:clean'], function() {
     var appFiles = './source/**/*.js',
         destPath = './dist',
