@@ -37,7 +37,7 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
 
   // Find data in a tree
   var node = tree.addChild(someObject);
-  var match = tree.findNode(someObject);  // match === node
+  var match = tree.find(someObject);  // match === node
 
   // Find the tree root, from any node
   var root = node.root();
