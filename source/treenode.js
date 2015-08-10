@@ -102,7 +102,7 @@ export class TreeNode {
         // do the same for all children
         if (this.children) {
             for (let i = 0, length = this.children.length; i < length; i++) {
-                callback(this.children[i]);
+                this.children[i].forEach(callback);
             }
         }
 

@@ -59,6 +59,7 @@ functionality. Lint and test your code.
 
 ## Release History
 
+* 0.2.3 Make forEach() properly recursive
 * 0.2.2 Don't assume existence of children array. Added numChildren() helper
 * 0.2.1 Remove sourcemaps from non-minified prod file
 * 0.2.0 Add forEach() to execute a function on each node in a tree

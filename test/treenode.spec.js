@@ -59,6 +59,7 @@ describe("TreeNode Class", function() {
     it("should execute forEach() callback on all child nodes", function() {
         var intermediateNode = tree.addChild(data[1]);
         var childNode = intermediateNode.addChild(data[2]);
+        var grandchildNode = childNode.addChild(data[3]);
 
         intermediateNode.forEach(function(node) {
            node.data.status = 'updated';
@@ -67,6 +68,7 @@ describe("TreeNode Class", function() {
         expect(tree.root().data.status).toBe('initial');
         expect(intermediateNode.data.status).toBe('updated');
         expect(childNode.data.status).toBe('updated');
+        expect(grandchildNode.data.status).toBe('updated');
     });
 
     it("should return the number of children", function() {
