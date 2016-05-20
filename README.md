@@ -34,6 +34,13 @@ by tree diagram visualizations, and so that "leaf" nodes (endpoints) can be quic
   // Returns an array of TreeNode objects for node 1 and node 3. Node 2 is not
   // returned since it is not a leaf.
   var leaves = tree.leaves();
+  
+  // Obtain the node's children. Returns an array of nodes that are direct
+  // children.
+  var childrenArray = node.children();
+  
+  // Return the node's parent. Calling on root will return undefined.
+  var parentNode = node.parent;
 
   // Find data in a tree
   var node = tree.addChild(someObject);
